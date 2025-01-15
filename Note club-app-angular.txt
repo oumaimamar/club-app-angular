@@ -1,0 +1,39 @@
+Note club-app-angular
+
+
+------------------------
+ng new club-app-angular --no-standalone
+npm install --save bootstrap bootstrap-icons
+
+----------------------- angular.json
+
+            "assets": [
+              "src/assets"
+            ],
+
+"styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css", --> pour Angular Template
+              "src/styles.css"
+	      "node_modules/bootstrap/dist/css/bootstrap.min.css"
+            ],
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.js" --> pour bootstrap Template
+            ]
+---------------------------
+
+
+
+
+||||||||||||||||||||||||||
+** ng g c clubs
+
+** dans un premier temps en utilise -- http: HttpClient -- dans un constructeur
+
+** pour recuperer id 
+  constructor(private route: ActivatedRoute,)
+ {  this.code=route.snapshot.params['code'];}
+
+
+
+|||||||||||||||||||| PROBLEM Cors 
+https://youtu.be/iMCjDRUXoeM?t=1568

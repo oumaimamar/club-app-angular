@@ -1,0 +1,26 @@
+<app-nav></app-nav>
+<div class="p-5"></div>
+
+
+<div class="container">
+  <table class="table" *ngIf="terrains">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Status</th>
+      <th>nbPerson</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let t of terrains">
+      <td>{{t.id}}</td>
+      <td>{{t.name}}</td>
+      <td>{{t.type}}</td>
+      <td>{{t.status}}</td>
+      <td>{{t.nbPersons}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
