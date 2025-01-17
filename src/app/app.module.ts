@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { NavComponent } from './nav/nav.component';
 import { TerrainsComponent } from './terrains/terrains.component';
 import { ClubDetailsComponent } from './club-details/club-details.component';
+import { CustomersComponent } from './customers/customers.component';
 
 @NgModule({
   declarations: [
@@ -17,12 +18,14 @@ import { ClubDetailsComponent } from './club-details/club-details.component';
     HomeComponent,
     NavComponent,
     TerrainsComponent,
-    ClubDetailsComponent
+    ClubDetailsComponent,
+    CustomersComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -32,4 +32,7 @@ export class ClubDetailsComponent implements OnInit {
     })
   }
 
+  getReserv(t: any) {
+
+  }
 }

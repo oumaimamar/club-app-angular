@@ -2,25 +2,40 @@
 <div class="p-5"></div>
 
 
-<div class="container">
-  <table class="table" *ngIf="terrains">
-    <thead>
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Status</th>
-      <th>nbPerson</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let t of terrains">
-      <td>{{t.id}}</td>
-      <td>{{t.name}}</td>
-      <td>{{t.type}}</td>
-      <td>{{t.status}}</td>
-      <td>{{t.nbPersons}}</td>
-    </tr>
-    </tbody>
-  </table>
+<!--<div class="container">-->
+<!--  <table class="table" *ngIf="terrains">-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--      <th>ID</th>-->
+<!--      <th>Name</th>-->
+<!--      <th>Type</th>-->
+<!--      <th>Status</th>-->
+<!--      <th>nbPerson</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    <tr *ngFor="let t of terrains">-->
+<!--      <td>{{t.id}}</td>-->
+<!--      <td>{{t.name}}</td>-->
+<!--      <td>{{t.type}}</td>-->
+<!--      <td>{{t.status}}</td>-->
+<!--      <td>{{t.nbPersons}}</td>-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--  </table>-->
+<!--</div>-->
+
+<div  class="container p-5 my-5 text-white"
+      [ngClass]="{
+    'bg-dark': index % 3 === 0,
+    'bg-primary': index % 3 === 1,
+    'bg-orange': index % 3 === 2
+  }"
+      *ngFor="let t of terrains; let index = index">
+  <h1>{{t.name}}</h1>
+  <h2>{{t.type}} nbPerson max {{t.nbPersons}} </h2>
+  <h2>{{t.status}}</h2>
+  <p>{{t.ville}}</p>
+
+  <button class="btn btn-success" (click)="getReserv(t)">Create Reservation</button>
 </div>
