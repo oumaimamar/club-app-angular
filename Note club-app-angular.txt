@@ -1,9 +1,18 @@
 Note club-app-angular
 
 
-------------------------
-ng new club-app-angular --no-standalone
+---------------Install
 npm install --save bootstrap bootstrap-icons
+ng add @angular/material || theme --> "node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+----------------------------------------------------------------------------------------------
+
+-------------Create component 
+ng new club-app-angular --no-standalone
+---------------------------------------------
+
+------------Html pages
+formControlName="password" --> est c'elle qui recupere les donner du form ou le champs pwd dans notre exemple 
+
 
 ----------------------- angular.json
 

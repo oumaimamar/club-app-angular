@@ -29,7 +29,7 @@ export class ClubsComponent implements OnInit {
   }
 
   getTerrains(c:any) {
-    this.router.navigateByUrl("/club-details/"+ c.code);
+    this.router.navigateByUrl("/admin/club-details/"+ c.code);
 
   }
 }

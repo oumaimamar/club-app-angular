@@ -1,49 +1,48 @@
+/* V1 */
 .carousel {
   max-height: 400px; /* Set a max height for the carousel */
   overflow: hidden; /* Ensures content doesn't overflow the container */
 }
-
 .carousel-inner img {
   height: 400px;
   object-fit: cover;
 }
+/*-------------------------------------------------------------------*/
 
-/* Add the following CSS for extra styling */
-
+/* V6 */
  .testimonial-card {
    transition: transform 0.3s ease, box-shadow 0.3s ease;
  }
-
 .testimonial-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
-
 .card-footer .author-name {
   font-size: 1.2rem;
   color: #ffffff;
 }
-
 .card-footer .author-title {
   font-size: 1rem;
   color: #e6e6e6;
 }
-
-.text-primary {
-  color: #007bff !important;
-}
-
-.text-muted {
-  color: #6c757d !important;
-}
-
 /* Hover Effect for the Author Name */
 .card-footer .author-name:hover {
   color: #ffc107;
   cursor: pointer;
 }
+/*-------------------------------------------------------------------*/
+/* V4-V5 */
+.text-primary {
+  color: #007bff !important;
+}
+/*-------------------------------------------------------------------*/
+/* V3 */
+.text-muted {
+  color: #6c757d !important;
+}
+/*-------------------------------------------------------------------*/
 
-
+/* V7 */
 .social-buttons1 .social-icon {
   font-size: 1.5rem;
   padding: 10px 20px;
@@ -88,3 +87,4 @@
   font-size: 2.5rem;
   font-weight: 600;
   color: #007bff;}
+/*-------------------------------------------------------------------*/
