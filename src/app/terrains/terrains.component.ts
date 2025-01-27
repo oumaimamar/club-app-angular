@@ -1,5 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatSort} from '@angular/material/sort';
+import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
   selector: 'app-terrains',
@@ -9,7 +12,12 @@ import {HttpClient} from '@angular/common/http';
   styleUrl: './terrains.component.css'
 })
 export class TerrainsComponent implements OnInit {
-  terrains:any
+  terrains:any;
+  dataSource!: MatTableDataSource<any>;
+
+
+  @ViewChild(MatPaginator) paginator! : MatPaginator;
+
 
   constructor(private http: HttpClient) {
   }
@@ -17,6 +25,9 @@ export class TerrainsComponent implements OnInit {
     this.http.get("http://localhost:8888/INVENTORY-SERVICE/terrains").subscribe({
       next: data => {
         this.terrains = data;
+
+        this.dataSource = new MatTableDataSource(this.terrains);
+        this.dataSource.paginator = this.paginator; // Connect paginator to data source
 
       },
       error: err => {

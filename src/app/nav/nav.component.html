@@ -27,7 +27,8 @@
 
     <!-- Login button -->
     <div class="ms-auto">
-      <button class="btn btn-primary" routerLink="/login">Login</button>
+      <a mat-button *ngIf="authService.isAuthenticated">{{authService.username}}</a>
+      <button (click)="logout()" class="btn btn-primary" >Logout</button>
     </div>
 
   </div>
