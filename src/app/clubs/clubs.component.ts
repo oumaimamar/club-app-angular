@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
+import {ClubsService} from '../services/clubs.service';
+import {Club} from '../model/terrains.model';
 
 @Component({
   selector: 'app-clubs',
@@ -10,14 +12,15 @@ import {Router} from '@angular/router';
   styleUrl: './clubs.component.css'
 })
 export class ClubsComponent implements OnInit {
-  clubs: any;
+  clubs!: Array<Club>;
 
 
-  constructor(private http: HttpClient,private router: Router) {
+  constructor(private clubsService: ClubsService,private router: Router) {
   }
 
   ngOnInit() {
-    this.http.get("http://localhost:8888/INVENTORY-SERVICE/clubs").subscribe({
+    this.clubsService.getClubs()
+      .subscribe({
       next: data => {
         this.clubs = data;
 

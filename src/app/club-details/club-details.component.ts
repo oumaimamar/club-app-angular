@@ -35,4 +35,9 @@ export class ClubDetailsComponent implements OnInit {
   getReserv(t: any) {
 
   }
+
+  newTerrain() {
+    this.router.navigateByUrl(`/admin/new-terrain/${this.code}`);
+
+  }
 }

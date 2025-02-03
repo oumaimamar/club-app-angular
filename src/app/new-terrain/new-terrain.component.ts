@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {ActivatedRoute, Router} from '@angular/router';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {TerrainStatus, TerrainType} from '../model/terrains.model';
+import {ClubsService} from '../services/clubs.service';
 
 @Component({
   selector: 'app-new-terrain',
@@ -10,25 +13,65 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrl: './new-terrain.component.css'
 })
 export class NewTerrainComponent implements OnInit {
-  terrains: any;
-  code!: number;
+  terrainFormGroup!: FormGroup;
+  clubId! : string;
+  terrainTypes : string[]=[];
+  terrainStatus : string[]=[];
+  showProgress : boolean = false;
 
 
-  constructor(private http: HttpClient,private router: Router,
-              private route: ActivatedRoute,) {
-    this.code=route.snapshot.params['code'];
-  }
+
+  constructor(private fb:FormBuilder,
+              private activatedRoute : ActivatedRoute,
+              private clubsService : ClubsService ) {}
 
   ngOnInit() {
-    this.http.get(`http://localhost:8091/clubs/${this.code}/terrains`).subscribe({
-      next: data => {
-        this.terrains = data;
-
-      },
-      error: err => {
-        console.log(err);
+    for (let elt in TerrainType){
+      let value = TerrainType[elt];
+      if (typeof value === 'string'){
+        this.terrainTypes.push(value);
       }
-    })
+    }
+
+    for (let elt in TerrainStatus){
+      let value = TerrainStatus[elt];
+      if (typeof value === 'string'){
+        this.terrainStatus.push(value);
+      }
+    }
+
+    this.clubId = this.activatedRoute.snapshot.params['code']
+
+    this.terrainFormGroup=this.fb.group({
+      clubId : this.fb.control(this.clubId),
+      name : this.fb.control(''),
+      type : this.fb.control(''),
+      status : this.fb.control(''),
+      nbPerson : this.fb.control(''),
+
+    });
   }
 
+  saveTerrain() {
+    this.showProgress=true;
+    let formData = new FormData();
+    formData.set('clubId',this.terrainFormGroup.value.clubId);
+    formData.set('name',this.terrainFormGroup.value.name);
+    formData.set('type',this.terrainFormGroup.value.type);
+    formData.set('status',this.terrainFormGroup.value.status);
+    formData.set('nbPerson',this.terrainFormGroup.value.nbPerson);
+
+    this.clubsService.saveTerrain(formData).subscribe({
+      next : value => {
+        this.showProgress=false;
+
+        alert('Terrain Saved successfully!')
+      },
+      error : err => {
+        console.log(err);
+      }
+      }
+    );
+
+  }
 }

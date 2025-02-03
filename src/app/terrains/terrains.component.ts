@@ -3,6 +3,8 @@ import {HttpClient} from '@angular/common/http';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import {ClubsService} from '../services/clubs.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-terrains',
@@ -19,10 +21,12 @@ export class TerrainsComponent implements OnInit {
   @ViewChild(MatPaginator) paginator! : MatPaginator;
 
 
-  constructor(private http: HttpClient) {
+  constructor(private clubsService : ClubsService,
+              private  router : Router) {
   }
   ngOnInit() {
-    this.http.get("http://localhost:8888/INVENTORY-SERVICE/terrains").subscribe({
+    this.clubsService.getAllTerrains()
+      .subscribe({
       next: data => {
         this.terrains = data;
 

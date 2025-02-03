@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.terrain-card {
+  width: 400px;
+  padding: 20px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+}

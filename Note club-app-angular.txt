@@ -1,20 +1,21 @@
 Note club-app-angular
 
-
----------------Install
+---------------------------------------------------------------------------------------
+---------------Install-----------------------------------------------------------------
 npm install --save bootstrap bootstrap-icons
 ng add @angular/material || theme --> "node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
 ----------------------------------------------------------------------------------------------
 
--------------Create component 
+-------------Create component --------------
 ng new club-app-angular --no-standalone
 ---------------------------------------------
 
-------------Html pages
+------------Html pages ------------------------------------------------------------------------------------
 formControlName="password" --> est c'elle qui recupere les donner du form ou le champs pwd dans notre exemple 
 
 
------------------------ angular.json
+---------------------------------------------------------------------------------------------------------
+----------------------- angular.json --------------------------------------------------------------------
 
             "assets": [
               "src/assets"
@@ -28,12 +29,12 @@ formControlName="password" --> est c'elle qui recupere les donner du form ou le 
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.js" --> pour bootstrap Template
             ]
----------------------------
+---------------------------------------------------------------------------------------------------------
 
 
 
-
-||||||||||||||||||||||||||
+*****************************************************************
+*****************************************************************
 ** ng g c clubs
 
 ** dans un premier temps en utilise -- http: HttpClient -- dans un constructeur
@@ -41,8 +42,23 @@ formControlName="password" --> est c'elle qui recupere les donner du form ou le 
 ** pour recuperer id 
   constructor(private route: ActivatedRoute,)
  {  this.code=route.snapshot.params['code'];}
+*****************************************************************
 
 
-
-|||||||||||||||||||| PROBLEM Cors 
+----------------- PROBLEM Cors ---------------------
 https://youtu.be/iMCjDRUXoeM?t=1568
+----------------------------------------------------
+
+
+
+**********************************
+************ GIT *****************
+git add . 
+git commit -m "V3 show Tb Pagint"
+git branch -M main 
+git push -u origin main
+**********************************
+
+
+
+
