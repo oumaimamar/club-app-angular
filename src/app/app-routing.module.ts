@@ -8,22 +8,41 @@ import {NewReservComponent} from './new-reserv/new-reserv.component';
 import {NewTerrainComponent} from './new-terrain/new-terrain.component';
 import {NavComponent} from './nav/nav.component';
 import {LoginComponent} from './login/login.component';
+import {AuthGuard} from './guards/auth.guard';
+import {AuthorizationGuard} from './guards/AuthorizationGuard.guard';
+import {ReservationsComponent} from './reservations/reservations.component';
+import {ProfileComponent} from './profile/profile.component';
 
 const routes: Routes = [
 
   { path: "", component: LoginComponent },
   { path: "login", component: LoginComponent },
   {
-    path: "admin",
-    component: NavComponent,
+    path: "admin", component: NavComponent,
+    canActivate:[AuthGuard],
     children: [
-      { path: "home", component: HomeComponent },
+      { path: "home", component: HomeComponent
+        , canActivate : [AuthorizationGuard], data:{roles:['USER']}
+      },
       { path: "clubs", component: ClubsComponent },
       { path: "terrains", component: TerrainsComponent },
-      { path: "club-details/:code", component: ClubDetailsComponent },
-      { path: "new-terrain", component: NewTerrainComponent },
-      { path: "new-terrain/:code", component: NewTerrainComponent },
+      { path: "club-details/:id", component: ClubDetailsComponent },
+      { path: "new-terrain", component: NewTerrainComponent},
+
+      { path: "new-terrain/:code", component: NewTerrainComponent
+        , canActivate : [AuthorizationGuard], data:{roles:['ADMIN']}
+      },
+
+      { path: "profile", component: ProfileComponent },
+
+
+      { path: "reservations", component: ReservationsComponent },
+
       { path: "new-reserv", component: NewReservComponent },
+      { path: "new-reserv/:id", component: NewReservComponent },
+
+
+
     ],
   },
   { path: "**", redirectTo: "" }, // Redirect unknown paths to the login page

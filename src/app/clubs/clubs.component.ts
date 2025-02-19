@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {ClubsService} from '../services/clubs.service';
 import {Club} from '../model/terrains.model';
+import {AuthService} from '../services/auth.service';
 
 @Component({
   selector: 'app-clubs',
@@ -15,7 +16,9 @@ export class ClubsComponent implements OnInit {
   clubs!: Array<Club>;
 
 
-  constructor(private clubsService: ClubsService,private router: Router) {
+  constructor(private clubsService: ClubsService
+              ,private router: Router,
+              public authService: AuthService) {
   }
 
   ngOnInit() {
@@ -32,7 +35,7 @@ export class ClubsComponent implements OnInit {
   }
 
   getTerrains(c:any) {
-    this.router.navigateByUrl("/admin/club-details/"+ c.code);
+    this.router.navigateByUrl("/admin/club-details/"+ c.id);
 
   }
 }

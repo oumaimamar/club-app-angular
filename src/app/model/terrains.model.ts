@@ -25,3 +25,22 @@ export enum TerrainStatus{
 export enum ClubVille{
   CASABLANCA, SALE, MARRAKESH, FES, RABAT
 }
+
+
+export interface Customer {
+  id : number;
+  name : string;
+  email : string;
+  }
+
+export interface Reserv {
+  id : number;
+  reservDate : Date
+  terrainId : number
+  customerId : number
+  type : TerrainType;
+  terrain : Terrain;
+  clubName : string;
+  customer : Customer
+
+}

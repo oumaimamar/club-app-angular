@@ -47,7 +47,7 @@ export class NewTerrainComponent implements OnInit {
       name : this.fb.control(''),
       type : this.fb.control(''),
       status : this.fb.control(''),
-      nbPerson : this.fb.control(''),
+      nbPersons : this.fb.control(''),
 
     });
   }
@@ -59,7 +59,7 @@ export class NewTerrainComponent implements OnInit {
     formData.set('name',this.terrainFormGroup.value.name);
     formData.set('type',this.terrainFormGroup.value.type);
     formData.set('status',this.terrainFormGroup.value.status);
-    formData.set('nbPerson',this.terrainFormGroup.value.nbPerson);
+    formData.set('nbPersons',this.terrainFormGroup.value.nbPersons);
 
     this.clubsService.saveTerrain(formData).subscribe({
       next : value => {

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {Observable} from 'rxjs';
-import {Club, Terrain} from '../model/terrains.model';
+import {Club, Reserv, Terrain} from '../model/terrains.model';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +22,11 @@ export class ClubsService {
 
   }
 
+  public getReserv(): Observable<Array<Reserv>> {
+    return  this.http.get<Array<Reserv>> (`${environment.backendHost1}/reservations`);
+
+  }
+
   // public getClubTerrains(code:string): Observable<Array<Terrain>> {
   //   return  this.http.get<Array<Terrain>> (`${environment.backendHost}/${code}/terrains`);
   // }
@@ -29,5 +34,6 @@ export class ClubsService {
   public saveTerrain(formData:any): Observable<Terrain> {
     return  this.http.post<Terrain>(`${environment.backendHost}/terrains`,formData);
   }
+
 
 }

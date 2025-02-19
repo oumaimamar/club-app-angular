@@ -31,6 +31,10 @@ import {MatListModule} from '@angular/material/list';
 import { NewReservComponent } from './new-reserv/new-reserv.component';
 import { NewTerrainComponent } from './new-terrain/new-terrain.component';
 import { LoginComponent } from './login/login.component';
+import {AuthGuard} from './guards/auth.guard';
+import {AuthorizationGuard} from './guards/AuthorizationGuard.guard';
+import { ReservationsComponent } from './reservations/reservations.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +47,9 @@ import { LoginComponent } from './login/login.component';
     CustomersComponent,
     NewReservComponent,
     NewTerrainComponent,
-    LoginComponent
+    LoginComponent,
+    ReservationsComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -72,6 +78,8 @@ import { LoginComponent } from './login/login.component';
   ],
   providers: [
     provideAnimationsAsync(),
+    AuthGuard,
+    AuthorizationGuard
   ],
   bootstrap: [AppComponent]
 })
