@@ -27,19 +27,22 @@
 
 
 
-
 <ng-container *ngFor="let c of clubs; let index = index">
   <div *ngIf="authService.roles.includes('USER')"
-       class="container p-5 my-5 text-white"
+       class="club-card"
        [ngClass]="{
-          'bg-dark': index % 3 === 0,
-          'bg-primary': index % 3 === 1,
-          'bg-orange': index % 3 === 2
+          'bg-club-1': index % 4 === 0,
+          'bg-club-2': index % 4 === 1,
+          'bg-club-3': index % 4 === 2,
+          'bg-club-4': index % 4 === 3,
        }">
-    <h1>{{c.name}}</h1>
-    <p>{{c.ville}}</p>
-
-    <button class="btn btn-primary" (click)="getTerrains(c)">List de Terrain</button>
+    <div class="club-overlay">
+      <div class="container p-5 my-5 text-white">
+        <h1>{{c.name}}</h1>
+        <p>{{c.ville}}</p>
+        <button class="btn btn-primary" (click)="getTerrains(c)">List de Terrain</button>
+      </div>
+    </div>
   </div>
 </ng-container>
 

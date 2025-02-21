@@ -40,4 +40,10 @@ export class TerrainsComponent implements OnInit {
     })
   }
 
+  onUpdate(element:any) {
+  }
+
+  onDelete(id:any) {
+
+  }
 }

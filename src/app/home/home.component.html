@@ -247,10 +247,13 @@
 </section><!--End What experts V6-->
 
 <!-- Follow Us V7-->
-<section class="social-buttons1 py-5" id="social-buttons1-1c" style="background-color: #87CEFA;">
-  <div class="container text-center">
-    <h2 class="title mb-4 text-dark">Follow Us</h2>
+<!-- End Follow Us V7 -->
 
+<!-- Hero Section -->
+<section class="hero-section text-center text-white py-5" style="background: url('/assets/img/sport-bg.jpg') no-repeat center center/cover;">
+  <div class="container">
+    <h1 class="display-4 fw-bold">Follow Us</h1>
+    <p class="lead">Reserve terrains, join clubs, and stay connected with your community.</p>
     <div class="d-flex justify-content-center">
       <!-- YouTube Icon -->
       <a href="https://www.youtube.com/channel/UCIl8JHjLsqZNOdgBOYC_MRQ" target="_blank" class="mx-3">
@@ -273,7 +276,73 @@
       </a>
     </div>
   </div>
-</section><!-- End Follow Us V7 -->
+</section>
+
+
+
+<!-- Back to Top Button -->
+<button id="back-to-top" class="btn btn-primary btn-lg back-to-top" title="Go to top">
+  <i class="bi bi-arrow-up"></i>
+</button>
+
+<style>
+  .back-to-top {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    display: flow;
+    z-index: 1000;
+  }
+</style>
+
+<script>
+  // JavaScript to show/hide the back-to-top button
+  window.onscroll = function() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      document.getElementById("back-to-top").style.display = "block";
+    } else {
+      document.getElementById("back-to-top").style.display = "none";
+    }
+  };
+
+  // Scroll to top on button click
+  document.getElementById("back-to-top").onclick = function() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  };
+</script>
+
+
+<!-- Dark Mode Toggle -->
+<button id="dark-mode-toggle" class="btn btn-secondary position-fixed bottom-0 end-0 m-3">
+  <i class="bi bi-moon"></i>
+</button>
+
+<script>
+  // JavaScript to toggle dark mode
+  document.getElementById("dark-mode-toggle").onclick = function() {
+    document.body.classList.toggle("dark-mode");
+  };
+</script>
+
+<style>
+  .dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+  }
+
+  .dark-mode .card {
+    background-color: #1e1e1e;
+    color: #ffffff;
+  }
+
+  .dark-mode .footer {
+    background-color: #1e1e1e;
+    color: #ffffff;
+  }
+</style>
+
+
 
 
 

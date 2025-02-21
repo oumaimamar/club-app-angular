@@ -23,7 +23,8 @@ export class NewTerrainComponent implements OnInit {
 
   constructor(private fb:FormBuilder,
               private activatedRoute : ActivatedRoute,
-              private clubsService : ClubsService ) {}
+              private clubsService : ClubsService,
+              private router: Router ) {}
 
   ngOnInit() {
     for (let elt in TerrainType){
@@ -64,12 +65,15 @@ export class NewTerrainComponent implements OnInit {
     this.clubsService.saveTerrain(formData).subscribe({
       next : value => {
         this.showProgress=false;
+        alert('Terrain Saved successfully!');
 
-        alert('Terrain Saved successfully!')
+        this.router.navigate(['admin/terrains']);
       },
       error : err => {
         console.log(err);
-      }
+        this.showProgress = false;
+        alert('An error occurred while saving the terrain.');
+      },
       }
     );
 

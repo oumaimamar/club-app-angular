@@ -48,4 +48,24 @@ export class ClubDetailsComponent implements OnInit {
     this.router.navigateByUrl(`/admin/new-terrain/${this.id}`);
 
   }
+
+
+
+  getClassByType(type: string): string {
+    switch (type.toLowerCase()) {
+      case 'football':
+        return 'bg-football'; // Green for football (grass-like color)
+      case 'tennis':
+        return 'bg-tennis'; // Bright yellow for tennis (court-like color)
+      case 'basketball':
+        return 'bg-basketball'; // Orange for basketball (vibrant and energetic)
+      case 'volleyball':
+        return 'bg-volleyball'; // Light blue for volleyball (calm and beach-like)
+      default:
+        return 'bg-default'; // Neutral gray for other types
+    }
+  }
+
+
+
 }

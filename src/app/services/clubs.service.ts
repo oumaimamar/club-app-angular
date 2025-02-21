@@ -35,5 +35,9 @@ export class ClubsService {
     return  this.http.post<Terrain>(`${environment.backendHost}/terrains`,formData);
   }
 
+  // Delete a terrain by ID
+  public deleteTerrain(id: number): Observable<string> {
+    return this.http.delete<string>(`${environment.backendHost}/terrains/${id}`);
+  }
 
 }
