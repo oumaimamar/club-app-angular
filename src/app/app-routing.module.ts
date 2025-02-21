@@ -12,6 +12,7 @@ import {AuthGuard} from './guards/auth.guard';
 import {AuthorizationGuard} from './guards/AuthorizationGuard.guard';
 import {ReservationsComponent} from './reservations/reservations.component';
 import {ProfileComponent} from './profile/profile.component';
+import {CalendarComponent} from './calendar/calendar.component';
 
 const routes: Routes = [
 
@@ -32,6 +33,8 @@ const routes: Routes = [
       { path: "new-terrain/:code", component: NewTerrainComponent
         , canActivate : [AuthorizationGuard], data:{roles:['ADMIN']}
       },
+
+      { path: "calendar", component: CalendarComponent },
 
       { path: "profile", component: ProfileComponent },
 

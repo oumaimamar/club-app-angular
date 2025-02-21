@@ -35,6 +35,9 @@ import {AuthGuard} from './guards/auth.guard';
 import {AuthorizationGuard} from './guards/AuthorizationGuard.guard';
 import { ReservationsComponent } from './reservations/reservations.component';
 import { ProfileComponent } from './profile/profile.component';
+import { CalendarComponent } from './calendar/calendar.component';
+import {CommonModule} from '@angular/common';
+import {FullCalendarModule} from '@fullcalendar/angular';
 
 @NgModule({
   declarations: [
@@ -49,11 +52,13 @@ import { ProfileComponent } from './profile/profile.component';
     NewTerrainComponent,
     LoginComponent,
     ReservationsComponent,
-    ProfileComponent
+    ProfileComponent,
+    CalendarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    CommonModule, FullCalendarModule,
     HttpClientModule,
 
     MatToolbarModule,
